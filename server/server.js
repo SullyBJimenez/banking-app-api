@@ -3,7 +3,10 @@ import mongoose from "mongoose";
 import profileRouter from "./routes/profiles-routes.js";
 import cors from "cors";
 import 'dotenv/config';
+import { configDotenv } from "dotenv";
   
+configDotenv();
+
 const app = express();
 const port = process.env.PORT || 2020;
 const url = process.env.MONGO_URL;

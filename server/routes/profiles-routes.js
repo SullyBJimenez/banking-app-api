@@ -2,9 +2,9 @@ import express from "express";
 import profileModel from '../models/profile.js';
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-
-
-const JWT_SECRET = "sgdf97f98euhruoqehrfnrqnler[qer-q97434k13gr79qet6rq";
+import { configDotenv } from "dotenv";
+  
+configDotenv();
 
 const app = express();
 
@@ -44,7 +44,7 @@ app.post("/profile-login", async(req,res) => {
     if(!(await bcrypt.compare(password, profile.password))){
         return res.status(401).send({error: "Invalid Credentials", status: 401})
     } else {
-        const token = jwt.sign({email: profile.email}, JWT_SECRET)
+        const token = jwt.sign({email: profile.email}, process.env.JWT_SECRET)
         if(res.status(201)){
             return res.json({status: "ok", data: token});
         } else {
