@@ -4,7 +4,7 @@ import profileRouter from "./routes/profiles-routes.js";
 import cors from "cors";
 import 'dotenv/config';
 import { configDotenv } from "dotenv";
-import corsOptions from "./config/corsOptions.js"
+import corsOptions from "../../config/corsOptions.js"
 
 configDotenv();
 
