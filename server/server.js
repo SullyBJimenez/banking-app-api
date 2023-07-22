@@ -12,9 +12,9 @@ const app = express();
 const port = process.env.PORT || 2020;
 const url = process.env.MONGO_URL;
 
-app.use(cors(corsOptions))
 app.use(express.json());
 app.use(cors());
+app.use(cors(corsOptions))
 
 await mongoose.connect(url);
 
