@@ -57,8 +57,9 @@ app.post("/profile-login", async(req,res) => {
 
 app.post("/user-details", async(req,res) => {
     const { token } = req.body;
+    console.log('inside user-details')
     try {
-        const user = jwt.verify(token, JWT_SECRET);
+        const user = jwt.verify(token, process.env.JWT_SECRET);
         console.log(user);
         
         const userEmail = user.email;
@@ -77,7 +78,7 @@ app.put("/update-balance", async(req,res) => {
     console.log("balance", balance)
     try {
         console.log("a")
-        const user = jwt.verify(token, JWT_SECRET);
+        const user = jwt.verify(token, process.env.JWT_SECRET);
         console.log("user", user)
         
         const userEmail = user.email;
